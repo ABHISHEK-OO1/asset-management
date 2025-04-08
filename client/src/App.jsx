@@ -1,9 +1,28 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { Line } from "react-chartjs-2";
-import Chart from "chart.js/auto";
 import { IoClose } from "react-icons/io5";
+import {
+  Chart as ChartJS,
+  LineElement,
+  LinearScale,
+  CategoryScale,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  LineElement,
+  LinearScale,
+  CategoryScale,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 function App() {
   const [prices, setPrices] = useState({});
   const [portfolio, setPortfolio] = useState({});

@@ -8,7 +8,7 @@ body {
 }
 
 .login-background {
-  background: url("/login-bg.png") no-repeat center center fixed;
+  background: url("client/public/login-bg.png") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   display: flex;
