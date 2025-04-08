@@ -2,25 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { Line } from "react-chartjs-2";
+import Chart from "chart.js/auto";
 import { IoClose } from "react-icons/io5";
-import {
-  Chart,
-  LineController,
-  LineElement,
-  PointElement,
-  LinearScale,
-  Title,
-  CategoryScale,
-} from "chart.js";
-Chart.register(
-  LineController,
-  LineElement,
-  PointElement,
-  LinearScale,
-  Title,
-  CategoryScale
-);
-
 function App() {
   const [prices, setPrices] = useState({});
   const [portfolio, setPortfolio] = useState({});
@@ -44,11 +27,13 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/login", form);
+      console.log("Form sending:", form);
+      const res = await axios.post("/api/login", form);
       if (res.data.success) {
         setAuth(true);
       }
     } catch (err) {
+      console.error("Login error:", err.response?.data || err.message);
       setError("Invalid username or password.");
     }
   };
